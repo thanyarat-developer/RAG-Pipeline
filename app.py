@@ -13,13 +13,13 @@ PDF_PATH = "catalog.pdf"
 
 # [ระบบสร้างฐานข้อมูลอัตโนมัติบน Cloud]
 if not os.path.exists(DB_DIR):
-    st.warning("⚠️ ไม่พบฐานข้อมูล FAISS! ระบบกำลังสร้าง Knowledge Base อัตโนมัติ (อาจใช้เวลา 2-3 นาที)...")
+    st.warning("ไม่พบฐานข้อมูล FAISS! ระบบกำลังสร้าง Knowledge Base อัตโนมัติ (อาจใช้เวลา 2-3 นาที)...")
     with st.spinner("AI กำลังอ่านและสกัดตารางสเปก..."):
         try:
             extracted_data = etl_pipeline.extract_data_from_pdf(PDF_PATH)
             if extracted_data:
                 etl_pipeline.build_vector_database(extracted_data)
-                st.success("🎉 สร้างฐานข้อมูลสำเร็จ! กำลังโหลดแอปพลิเคชัน...")
+                st.success("สร้างฐานข้อมูลสำเร็จ! กำลังโหลดแอปพลิเคชัน...")
                 st.rerun()
             else:
                 st.error("❌ ไม่สามารถสกัดข้อมูลจาก PDF ได้")
@@ -36,10 +36,10 @@ def load_database():
 
 vectorstore = load_database()
 
-st.title("🏭 ระบบค้นหาสเปกประตูเหล็กม้วน (AI RAG)")
+st.title("ระบบค้นหาสเปกประตูเหล็กม้วน (AI RAG)")
 st.caption("เทคโนโลยี: FAISS Vector Search | พิมพ์ถามคำถามด้านล่างได้เลยครับ")
 
-query = st.text_input("💬 สอบถามข้อมูลสเปกสินค้า:", placeholder="เช่น ประตูทนไฟกันไฟได้นานกี่ชั่วโมง?")
+query = st.text_input("สอบถามข้อมูลสเปกสินค้า:", placeholder="เช่น ประตูทนไฟกันไฟได้นานกี่ชั่วโมง?")
 
 if query:
     with st.spinner("AI กำลังค้นหา..."):
@@ -50,4 +50,4 @@ if query:
                 with st.expander(f"📌 อ้างอิง {i+1} (หน้า {res.metadata['page']} - {res.metadata['data_type']})", expanded=(i==0)):
                     st.markdown(res.page_content)
         else:
-            st.warning("ไม่พบข้อมูลครับ")
+            st.warning("ไม่พบข้อมูลค่ะ")
