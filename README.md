@@ -14,11 +14,11 @@
 
 ```mermaid
 graph TD
-    A[ข้อมูลดิบ: แคตตาล็อก PDF] --> B{Data Extraction}
+    A[ข้อมูล: ไฟล์ PDF (ต้องเป็นข้อความไม่ใช่รูปภาพ)] --> B{Data Extraction}
     B -->|ถอดข้อความ| C[pdfplumber]
     B -->|ถอดตาราง| D[Camelot]
     
-    C --> E[Data Cleansing & Transformation]
+    C --> E[Data Cleansing]
     D -->|แปลงตารางเป็น Markdown| E
     
     E --> F[Text Splitter & Chunking]
