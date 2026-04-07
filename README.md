@@ -14,16 +14,16 @@
 
 ```mermaid
 graph TD
-    A[ข้อมูล: ไฟล์ PDF ต้องเป็นข้อความไม่ใช่รูปภาพ] --> B{Data Extraction}
+    A[ข้อมูล: ไฟล์ PDF ต้องเป็นข้อความไม่ใช่รูปภาพ] --> B{การดึงข้อมูล}
     B -->|ถอดข้อความ| C[pdfplumber]
     B -->|ถอดตาราง| D[Camelot]
     
-    C --> E[Data Cleansing]
+    C --> E[การทำความสะอาดข้อมูล]
     D -->|แปลงตารางเป็น Markdown| E
     
-    E --> F[Text Splitter & Chunking]
-    F -->|แนบ Metadata| G[HuggingFace Embeddings]
+    E --> F[การแบ่งข้อความและตัดเป็นช่วง]
+    F -->|แนบข้อมูลกำกับ (Metadata)| G[สร้างเวกเตอร์ด้วย HuggingFace Embeddings]
     
-    G --> H[(Vector DB: ChromaDB)]
-    H <--> I[Retrieval System]
+    G --> H[(Vector DB: Facebook AI Similarity Search)]
+    H <--> I[ระบบค้นคืนข้อมูล]
     I <--> J[Web UI: Streamlit]
