@@ -3,15 +3,10 @@ venv/
 env/
 __pycache__/
 *.pyc
-.env
 
-# Database & Storage
-chroma_db/
-
-# Data source (ไม่เอาไฟล์เอกสารของบริษัทขึ้น Public)
+# Data source (ไม่เอาไฟล์ PDF ต้นฉบับขึ้นเว็บ)
 data/
 *.pdf
 
 # OS generated files
 .DS_Store
-Thumbs.db
