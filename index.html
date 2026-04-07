@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
-    <title>Easy Resume Builder | สร้างรีซูเม่ง่ายๆ</title>
+    <title>Easy Resume Builder</title>
     <link rel="stylesheet" href="style.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
 </head>
@@ -12,55 +12,51 @@
     <div class="app-container">
         <header>
             <h1>Resume Builder</h1>
-            <p>กรอกข้อมูลเพื่อสร้างไฟล์ PDF</p>
+            <p>กรอกข้อมูลเพื่อสร้างรีซูเม่ของคุณ</p>
         </header>
 
         <section class="editor-side">
             <div class="card">
-                <h3><i class="icon">👤</i> ข้อมูลส่วนตัว</h3>
+                <h3>👤 ข้อมูลส่วนตัว</h3>
                 <input type="text" id="inName" placeholder="ชื่อ-นามสกุล" oninput="updatePreview()">
-                <input type="text" id="inRole" placeholder="ตำแหน่งงานที่สมัคร" oninput="updatePreview()">
-                <input type="email" id="inEmail" placeholder="อีเมล" oninput="updatePreview()">
+                <input type="text" id="inRole" placeholder="ตำแหน่งงาน" oninput="updatePreview()">
+                <input type="email" id="inEmail" placeholder="อีเมล (เช่น test@mail.com)" oninput="updatePreview()">
                 <input type="tel" id="inPhone" placeholder="เบอร์โทรศัพท์" oninput="updatePreview()">
             </div>
 
             <div class="card">
-                <h3><i class="icon">💼</i> ประสบการณ์ทำงาน</h3>
-                <textarea id="inExp" rows="4" placeholder="เล่าประสบการณ์ของคุณ (เช่น เคยทำที่ไหน หน้าที่อะไร...)" oninput="updatePreview()"></textarea>
+                <h3>💼 ประสบการณ์ทำงาน</h3>
+                <textarea id="inExp" rows="4" placeholder="ระบุประสบการณ์ของคุณ..." oninput="updatePreview()"></textarea>
             </div>
 
             <div class="card">
-                <h3><i class="icon">🛠</i> ทักษะ (Skills)</h3>
-                <input type="text" id="inSkills" placeholder="เช่น Photoshop, งานช่าง, การขาย (คั่นด้วยคอมม่า)" oninput="updatePreview()">
+                <h3>🛠 ทักษะ (Skills)</h3>
+                <input type="text" id="inSkills" placeholder="ทักษะของคุณ (คั่นด้วยคอมม่า ,)" oninput="updatePreview()">
             </div>
 
             <button class="btn-download" onclick="exportPDF()">ดาวน์โหลดรีซูเม่ (PDF)</button>
         </section>
 
-        <hr>
-
-        <section class="preview-side">
-            <h3>ตัวอย่างผลลัพธ์</h3>
-            <div id="resume-to-print" class="resume-paper">
-                <div class="resume-header">
-                    <h1 id="outName">ชื่อ-นามสกุล</h1>
-                    <p id="outRole" class="sub-title">ตำแหน่งงาน</p>
-                </div>
-                
-                <div class="resume-body">
-                    <div class="contact-info">
-                        <p><strong>ติดต่อ:</strong> <span id="outEmail">example@mail.com</span> | <span id="outPhone">08x-xxx-xxxx</span></p>
-                    </div>
-
-                    <div class="section-title">ประสบการณ์การทำงาน</div>
-                    <p id="outExp" class="text-block">รายละเอียดประสบการณ์ของคุณจะแสดงตรงนี้...</p>
-
-                    <div class="section-title">ทักษะและความสามารถ</div>
-                    <div id="outSkills" class="skills-tags">
-                        </div>
-                </div>
+        <h3 style="margin-top: 30px;">ตัวอย่างผลลัพธ์</h3>
+        
+        <div id="resume-to-print" class="resume-paper">
+            <div class="resume-header">
+                <h1 id="outName">ชื่อ-นามสกุล</h1>
+                <p id="outRole" class="sub-title">ตำแหน่งงาน</p>
             </div>
-        </section>
+            
+            <div class="resume-body">
+                <div class="contact-info">
+                    <p><strong>ติดต่อ:</strong> <span id="outEmail">example@mail.com</span> | <span id="outPhone">08x-xxx-xxxx</span></p>
+                </div>
+
+                <div class="section-title">ประสบการณ์การทำงาน</div>
+                <p id="outExp" class="text-block">รายละเอียดประสบการณ์ของคุณจะแสดงตรงนี้...</p>
+
+                <div class="section-title">ทักษะและความสามารถ</div>
+                <div id="outSkills" class="skills-tags"></div>
+            </div>
+        </div>
     </div>
 
     <script src="script.js"></script>
