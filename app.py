@@ -2,6 +2,14 @@ import streamlit as st
 import os
 from langchain_huggingface import HuggingFaceEmbeddings
 from langchain_community.vectorstores import Chroma
+__import__('pysqlite3')
+import sys
+sys.modules['sqlite3'] = sys.modules.pop('pysqlite3')
+
+import streamlit as st
+import os
+from langchain_huggingface import HuggingFaceEmbeddings
+from langchain_community.vectorstores import Chroma
 
 # ================= การตั้งค่าหน้าเว็บ =================
 st.set_page_config(page_title="Shutter Spec AI", page_icon="🏭", layout="centered")
