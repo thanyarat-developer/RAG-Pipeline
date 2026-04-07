@@ -47,7 +47,7 @@ vectorstore = load_database()
 st.title("ระบบค้นหาคู่มือฝ่ายขาย")
 st.caption("เทคโนโลยี: FAISS Vector Search | พิมพ์ถามคำถามด้านล่างได้เลยครับ")
 
-query = st.text_input("ค้นหาคู่มือตาข่ายตะแกรง", placeholder="เช่น วิธีการผลิตตาข่าย")
+query = st.text_input("ค้นหาคู่มือ", placeholder="เช่น วิธีการทำงานของฝ่ายขายมีอะไรบ้าง")
 
 if query:
     with st.spinner("AI กำลังค้นหา..."):
