@@ -4,7 +4,7 @@ from langchain_huggingface import HuggingFaceEmbeddings
 from langchain_community.vectorstores import FAISS
 import etl_pipeline 
 
-st.set_page_config(page_title="Shutter Spec AI", page_icon="🏭", layout="centered")
+st.set_page_config(page_title="Shutter Spec AI", layout="centered")
 
 DB_DIR = "./faiss_db"
 EMBEDDING_MODEL = "sentence-transformers/paraphrase-multilingual-MiniLM-L12-v2"
