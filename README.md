@@ -22,7 +22,7 @@ graph TD
     D -->|แปลงตารางเป็น Markdown| E
     
     E --> F[การแบ่งข้อความและตัดเป็นช่วง]
-    F -->|แนบข้อมูลกำกับ (Metadata)| G[สร้างเวกเตอร์ด้วย HuggingFace Embeddings]
+    F -->|แนบข้อมูลกำกับMetadata| G[สร้างเวกเตอร์ด้วย HuggingFace Embeddings]
     
     G --> H[(Vector DB: Facebook AI Similarity Search)]
     H <--> I[ระบบค้นคืนข้อมูล]
